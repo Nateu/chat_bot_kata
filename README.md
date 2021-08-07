@@ -1,16 +1,16 @@
 # Basic usage
 
 Run unit tests:
-* click the *** run *** button in replit
+* click the ** run ** button in replit
 
 Or in a shell
-* *** mamba --format=documentation specs/*_spec.py ***
+* ** mamba --format=documentation specs/*_spec.py **
 
 Run the bot in the shell tab:
-* *** python bot ***
+* ** python bot **
 
 To stop the bot:
-* say *** bye *** in chat
+* say ** bye ** in chat
 
 # Kata - instructions and features
 Use the message class to create a message that will be received,
@@ -27,7 +27,7 @@ The bot should handle commands ignoring upper/lower case differences.
 The bot should be context aware, assume it's always in 2 or more groups
 with multiple members that chat in the group.  
 
-*** Note: Start using the full Message class from this point forward. ***
+** Note: Start using the full Message class from this point forward. **
 
 Each message will come with a sentBy and a sentIn identifier,
 denoting the user that spoke and in which group.  
