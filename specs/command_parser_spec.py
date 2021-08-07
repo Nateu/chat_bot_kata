@@ -49,3 +49,11 @@ with description("Given a CommandParser") as self:
             ).to(
                 equal("No theme set.")
             )
+
+    with context("when a starts with 'seT tHeme'"):
+        with it("it should ignore case"):
+            expect(
+                self.command_parser.parse("seT tHeme Disney movie songs")
+            ).to(
+                equal("Disney movie songs")
+            )
