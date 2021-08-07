@@ -3,9 +3,9 @@ class CommandParser(object):
         self.theme = "No theme set."
 
     def parse(self, message):
-        if (message.lower() == "theme"):
+        if (message.body.lower() == "theme"):
             return self.theme
 
-        if (message.lower().startswith("set theme")):
-            self.theme = message[10:]
-            return message[10:]
+        if (message.body.lower().startswith("set theme")):
+            self.theme = message.body[10:]
+            return message.body[10:]
