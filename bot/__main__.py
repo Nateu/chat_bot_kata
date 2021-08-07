@@ -18,7 +18,7 @@ class bcolors:
 def bot():
     chatBot = chat_bot.ChatBot()
     exit_loop = False
-    print(bcolors.OKGREEN + "Botty: Hello! I'm a bot" + bcolors.ENDC)
+    print(bcolors.OKGREEN + "🤖 Hello! I'm a bot" + bcolors.ENDC)
     while not exit_loop:
         console_input = str(input())
         if console_input.lower() == "bye":
@@ -28,9 +28,9 @@ def bot():
             new_message = message.Message(console_input, "owner", "group A")
             parsedMessageResponse = chatBot.parse_message(new_message)
             if parsedMessageResponse:
-                print(bcolors.OKGREEN + "Botty: {}".format(parsedMessageResponse) + bcolors.ENDC)
+                print(bcolors.OKGREEN + "🤖 {}".format(parsedMessageResponse) + bcolors.ENDC)
             else:
-                print(bcolors.OKGREEN + "Botty: You said {}".format(new_message.body)+ bcolors.ENDC)
+                print(bcolors.OKGREEN + "🤖 You said {}".format(new_message.body)+ bcolors.ENDC)
 
 if __name__ == '__main__':
     bot()
