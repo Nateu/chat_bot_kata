@@ -1,16 +1,15 @@
 # Basic usage
 
-Run unit tests:
-* click the ** run ** button in replit
+#### Run unit tests:
+Click the **run** button in replit
 
 Or in a shell
-* ** mamba --format=documentation specs/*_spec.py **
+> mamba --format=documentation specs/*_spec.py
 
-Run the bot in the shell tab:
-* ** python bot **
+#### Run the bot in the shell tab:
+> python bot
 
-To stop the bot:
-* say ** bye ** in chat
+To stop the bot, say **bye** in chat
 
 # Kata - instructions and features
 Use the message class to create a message that will be received,
