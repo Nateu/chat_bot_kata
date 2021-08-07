@@ -1,8 +1,8 @@
-class CommandParser(object):
+class ChatBot(object):
     def __init__(self):
         self.theme = "No theme set."
 
-    def parse(self, message):
+    def parse_message(self, message):
         if (message.body.lower() == "theme"):
             return self.theme
 
