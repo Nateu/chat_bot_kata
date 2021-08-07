@@ -26,3 +26,13 @@ with description("Given a CommandParser") as self:
             ).to(
                 equal("Disney movie songs")
             )
+
+    with context("When a theme is set"):
+        with it("Should remember it a moment later"):
+            my_command_parser = command_parser.CommandParser()
+            my_command_parser.parse("Set theme Disney movie songs")
+            expect(
+                my_command_parser.parse("Theme")
+            ).to(
+                equal("Disney movie songs")
+            )
