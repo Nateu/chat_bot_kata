@@ -40,5 +40,5 @@ have the sentBy identifier "_owner_".
 __Feature 6: Administrator only options__  
 Only an Admin set the theme for a group, anyone can retreive it.
 
-__Feature 6: Only the owner can make someone administrator__  
+__Feature 7: Only the owner can make someone administrator__  
 Only an Admin set the theme for a group, anyone can retreive it.  
