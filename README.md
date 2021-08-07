@@ -37,5 +37,8 @@ Introduce a role for administrators; these should be the same regardless
 of group context. The bot owner is always an administrator and wil always
 have the sentBy identifier "_owner_".  
 
-__Feature 6:__  
-Only an Admin set the theme for a group.
+__Feature 6: Administrator only options__  
+Only an Admin set the theme for a group, anyone can retreive it.
+
+__Feature 6: Only the owner can make someone administrator__  
+Only an Admin set the theme for a group, anyone can retreive it.  
