@@ -10,7 +10,7 @@ to retrieve and set a theme of the day.
 
 with description("Given a CommandParser") as self:
     with context("When a message is 'Theme'"):
-        with it("Should return 'No theme set.'"):
+        with it("should return 'No theme set.'"):
             my_command_parser = command_parser.CommandParser()
             expect(
                 my_command_parser.parse("Theme")
@@ -19,7 +19,7 @@ with description("Given a CommandParser") as self:
             )
 
     with context("When a message starts with 'Set theme'"):
-        with it("Should store the remainder of the message as the theme"):
+        with it("should store the remainder of the message as the theme"):
             my_command_parser = command_parser.CommandParser()
             expect(
                 my_command_parser.parse("Set theme Disney movie songs")
@@ -28,7 +28,7 @@ with description("Given a CommandParser") as self:
             )
 
     with context("When a theme is set"):
-        with it("Should remember it a moment later"):
+        with it("should remember it a moment later"):
             my_command_parser = command_parser.CommandParser()
             my_command_parser.parse("Set theme Disney movie songs")
             expect(
