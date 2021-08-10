@@ -55,6 +55,17 @@ with description("Given a ChatBot") as self:
                                         "Group A")))
 
     with context("when a member speaks that is 'owner'"):
+        with context("and a message starts with 'Set theme'"):
+            with it("should store the remainder of the message as the theme"):
+                expect(
+                    self.chat_bot.parse_message(
+                        message.Message("Set theme Disney movie songs",
+                                        "owner", "Group A"))).to(
+                                            equal(
+                                                message.Message(
+                                                    "Disney movie songs",
+                                                    "bot", "Group A")))
+
         with context("and the message is 'Make admin usr_123'"):
             with it("should respond with: 'usr_123 is now an Admin'"):
                 expect(
@@ -149,6 +160,3 @@ with description("Given a ChatBot") as self:
                             equal("Disney movie songs"))
                         expect(response_group_B.sentIn).to(equal("Group B"))
                         expect(response_group_B.body).to(equal("Horror movies"))
-
-# def log(m):
-#     print("Group: {} Sender: {} Body: {}".format(m.sentIn, m.sentBy, m.body))
