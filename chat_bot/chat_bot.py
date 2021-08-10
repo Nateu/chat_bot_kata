@@ -6,6 +6,7 @@ class ChatBot(object):
     def __init__(self):
         self.theme_manager = theme_manager.ThemeManager()
         self.role_manager = role_manager.RoleManager()
+        self.role_manager.setAdmin("owner")
 
     def parse_message(self, incomming_message):
         if (incomming_message.body.lower() == "theme"):
