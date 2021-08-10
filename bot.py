@@ -2,7 +2,7 @@
 Simple script to emulate a bot
 '''
 from message import message
-from bot import chat_bot
+from chat_bot import chat_bot
 
 class bcolors:
     HEADER = '\033[95m'
