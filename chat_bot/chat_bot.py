@@ -19,7 +19,10 @@ class ChatBot(object):
                 incomming_message.sentIn)
 
         if (incomming_message.body.lower().startswith("make admin")):
-            if incomming_message.sentBy != "owner":
+            if incomming_message.sentBy == "owner":
+                return self.makeResponse("usr_123 is now an Admin",
+                                         incomming_message.sentIn)
+            else:
                 return self.makeResponse("You're not allowed to do that",
                                          incomming_message.sentIn)
 
