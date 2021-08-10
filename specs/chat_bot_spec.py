@@ -19,8 +19,9 @@ with description("Given a ChatBot") as self:
 
         with context("and a message is 'Theme'"):
             with it("should return 'No theme set.'"):
-                expect(self.chat_bot.parse_message(message.Message("Theme"))).to(
-                    equal(message.Message("No theme set.")))
+                expect(self.chat_bot.parse_message(
+                    message.Message("Theme"))).to(
+                        equal(message.Message("No theme set.")))
 
         with context("and a message starts with 'Set theme'"):
             with it("should store the remainder of the message as the theme"):
@@ -33,13 +34,15 @@ with description("Given a ChatBot") as self:
             with it("should remember it a moment later"):
                 self.chat_bot.parse_message(
                     message.Message("Set theme Disney movie songs"))
-                expect(self.chat_bot.parse_message(message.Message("Theme"))).to(
-                    equal(message.Message("Disney movie songs")))
+                expect(self.chat_bot.parse_message(
+                    message.Message("Theme"))).to(
+                        equal(message.Message("Disney movie songs")))
 
         with context("and a message is 'thEme'"):
             with it("it should ignore case"):
-                expect(self.chat_bot.parse_message(message.Message("thEme"))).to(
-                    equal(message.Message("No theme set.")))
+                expect(self.chat_bot.parse_message(
+                    message.Message("thEme"))).to(
+                        equal(message.Message("No theme set.")))
 
         with context("and a starts with 'seT tHeme'"):
             with it("it should ignore case"):
@@ -50,11 +53,13 @@ with description("Given a ChatBot") as self:
 
         with context("and a theme is set in context of Group A"):
             with it("it should be set for Group A"):
-                set_theme = message.Message("Set theme Disney movie songs", "user",
-                                            "Group A")
-                response = message.Message("Disney movie songs", "bot", "Group A")
+                set_theme = message.Message("Set theme Disney movie songs",
+                                            "user", "Group A")
+                response = message.Message("Disney movie songs", "bot",
+                                           "Group A")
                 response = self.chat_bot.parse_message(set_theme)
-                expect(self.chat_bot.parse_message(set_theme)).to(equal(response))
+                expect(self.chat_bot.parse_message(set_theme)).to(
+                    equal(response))
 
             with context("and another theme is set in context of Group B"):
                 with it("it should track each groups theme"):
@@ -69,7 +74,8 @@ with description("Given a ChatBot") as self:
                     response_group_A = self.chat_bot.parse_message(themeA)
                     response_group_B = self.chat_bot.parse_message(themeB)
                     expect(response_group_A.sentIn).to(equal("Group A"))
-                    expect(response_group_A.body).to(equal("Disney movie songs"))
+                    expect(response_group_A.body).to(
+                        equal("Disney movie songs"))
                     expect(response_group_B.sentIn).to(equal("Group B"))
                     expect(response_group_B.body).to(equal("Horror movies"))
 
@@ -87,16 +93,30 @@ with description("Given a ChatBot") as self:
 
     with context("when a member speaks that is 'owner'"):
         with context("and the message is 'Make admin usr_123'"):
-            with it("should register that id as an admin"):
+            with it("should respond with: 'usr_123 is now an Admin'"):
                 expect(
                     self.chat_bot.parse_message(
-                        message.Message(
-                            "Make admin usr_123", "owner",
-                            "Group A"))).to(
-                                equal(
-                                    message.Message(
-                                        "usr_123 is now an Admin", "bot",
-                                        "Group A")))
+                        message.Message("Make admin usr_123", "owner",
+                                        "Group A"))).to(
+                                            equal(
+                                                message.Message(
+                                                    "usr_123 is now an Admin",
+                                                    "bot", "Group A")))
+
+        with context("and usr_123 is an admin"):
+            with context("and the message is 'Make admin usr_123' is said in another group"):
+                with it("should state: 'usr_123 is already an Admin"):
+                    self.chat_bot.parse_message(
+                            message.Message("Make admin usr_123", "owner",
+                                            "Group A"))
+                    expect(self.chat_bot.parse_message(
+                            message.Message("Make admin usr_123", "owner",
+                                            "Group B"))
+                        ).to(
+                                                equal(
+                                                    message.Message(
+                                                        "usr_123 is already an Admin",
+                                                        "bot", "Group B")))
 
 # def log(m):
 #     print("Group: {} Sender: {} Body: {}".format(m.sentIn, m.sentBy, m.body))
