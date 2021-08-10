@@ -1,4 +1,4 @@
-from mamba import description, context, it, before, _context
+from mamba import description, context, it, before
 from expects import expect, equal
 from chat_bot import chat_bot
 from message import message
