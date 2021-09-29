@@ -12,6 +12,4 @@ mamba = "^0.11.2"
 expects = "^0.9.0"
 
 [tool.poetry.dev-dependencies]
-mamba = "==0.11.2"
-expects = "^0.9.0"
 pytest = "==6.0.0"

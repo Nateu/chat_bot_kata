@@ -1,5 +1,5 @@
-class Message(object):
-    def __init__(self, body, sentBy = None, sentIn = None):
+class Message:
+    def __init__(self, body: str, sentBy: str = None, sentIn:str = None):
         self.sentBy = sentBy
         self.sentIn = sentIn
         self.body = body
