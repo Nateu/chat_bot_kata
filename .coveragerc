@@ -1,0 +1,5 @@
+# .coveragerc to control coverage.py
+[run]
+branch = True
+source = ./chat_bot, ./specs
+omit = ./chat_bot/__init__.py
